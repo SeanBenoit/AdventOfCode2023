@@ -1,3 +1,33 @@
-[gd_scene format=3 uid="uid://c723v4wpwlc1a"]
+[gd_scene load_steps=2 format=3 uid="uid://c723v4wpwlc1a"]
+
+[ext_resource type="PackedScene" uid="uid://deyu15u2p6nsh" path="res://day_selector.tscn" id="1_f6nyx"]
 
 [node name="Main" type="Node2D"]
+
+[node name="MainUi" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 800.0
+offset_top = 100.0
+offset_right = 840.0
+offset_bottom = 140.0
+grow_horizontal = 2
+
+[node name="DescriptionLabel" type="Label" parent="MainUi"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_right = 59.0
+offset_bottom = 91.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Select a day to visualize"
+horizontal_alignment = 1
+
+[node name="DaySelector1" parent="MainUi" instance=ExtResource("1_f6nyx")]
+layout_mode = 1
+dayNumber = 1

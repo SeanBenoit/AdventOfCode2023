@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://deyu15u2p6nsh"]
+
+[ext_resource type="Script" path="res://day_selector.gd" id="1_7oke1"]
+[ext_resource type="Script" path="res://Part1Button.gd" id="2_5iub2"]
+[ext_resource type="Script" path="res://Part2Button.gd" id="3_p7rit"]
+
+[node name="DaySelector" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 80.0
+offset_right = 20.0
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7oke1")
+
+[node name="DayLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -85.0
+offset_top = -20.0
+offset_right = -42.0
+offset_bottom = 11.0
+grow_vertical = 2
+text = "Day 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Part1Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = -32.0
+offset_right = 22.0
+offset_bottom = 31.0
+text = "Part 1"
+script = ExtResource("2_5iub2")
+
+[node name="Part2Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 86.0
+offset_bottom = 31.0
+text = "Part 2"
+script = ExtResource("3_p7rit")
+
+[connection signal="pressed" from="Part1Button" to="Part1Button" method="_on_pressed"]
+[connection signal="pressed" from="Part2Button" to="Part2Button" method="_on_pressed"]

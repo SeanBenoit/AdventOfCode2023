@@ -11,8 +11,14 @@ config_version=5
 [application]
 
 config/name="Advent Of Code 2023"
+run/main_scene="res://Main.tscn"
 config/features=PackedStringArray("4.0")
 config/icon="res://icon.png"
+
+[display]
+
+window/size/viewport_width=1600
+window/size/viewport_height=900
 
 [rendering]
 
