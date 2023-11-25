@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://k8w6p6q8ke8d"]
+[gd_scene load_steps=2 format=3 uid="uid://bxb5uikgjuudh"]
 
-[ext_resource type="Script" path="res://BackButton.gd" id="1_167ro"]
+[ext_resource type="Script" path="res://BackButton.gd" id="1_57nyw"]
 
 [node name="PuzzleTemplate" type="Node2D"]
 
@@ -10,7 +10,7 @@ offset_top = 20.0
 offset_right = 177.0
 offset_bottom = 51.0
 text = "Back to Main Menu"
-script = ExtResource("1_167ro")
+script = ExtResource("1_57nyw")
 
 [node name="PuzzleRoot" type="Node2D" parent="."]
 position = Vector2(0, 71)
