@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://k8w6p6q8ke8d"]
+
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_4b5rx"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_nelyo"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_184tl"]
+
+[node name="PuzzleTemplate" type="Node2D"]
+script = ExtResource("1_4b5rx")
+dayNumber = 1
+partNumber = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 177.0
+offset_bottom = 51.0
+text = "Back to Main Menu"
+script = ExtResource("2_nelyo")
+
+[node name="PuzzleRoot" type="Node2D" parent="."]
+position = Vector2(0, 71)
+script = ExtResource("3_184tl")
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]

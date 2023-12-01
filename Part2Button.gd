@@ -11,5 +11,5 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	var scene_name = "res://day_%s_part_2.tscn" % dayNumber
+	var scene_name = "res://day_%s/part_2.tscn" % dayNumber
 	get_tree().change_scene_to_file(scene_name)

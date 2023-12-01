@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxb5uikgjuudh"]
+[gd_scene load_steps=4 format=3 uid="uid://bxb5uikgjuudh"]
 
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_16t0y"]
 [ext_resource type="Script" path="res://BackButton.gd" id="1_57nyw"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="2_qk3u6"]
 
 [node name="PuzzleTemplate" type="Node2D"]
+script = ExtResource("1_16t0y")
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 20.0
@@ -14,5 +17,6 @@ script = ExtResource("1_57nyw")
 
 [node name="PuzzleRoot" type="Node2D" parent="."]
 position = Vector2(0, 71)
+script = ExtResource("2_qk3u6")
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
