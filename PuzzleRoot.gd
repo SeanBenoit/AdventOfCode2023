@@ -2,6 +2,8 @@ extends Node2D
 
 var puzzleInputLines = []
 
+signal finish_parsing(input_lines)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var parent = get_parent()
@@ -10,8 +12,10 @@ func _ready():
 	var inputFile = FileAccess.open(inputFileName, FileAccess.READ)
 	while not inputFile.eof_reached():
 		puzzleInputLines.append(inputFile.get_line())
+		print(puzzleInputLines.size())
 	if (puzzleInputLines[-1] == ""):
 		puzzleInputLines.remove_at(puzzleInputLines.size() - 1)
+	finish_parsing.emit(puzzleInputLines)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

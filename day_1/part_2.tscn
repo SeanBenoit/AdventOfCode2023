@@ -1,14 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://k8w6p6q8ke8d"]
+[gd_scene load_steps=5 format=3 uid="uid://j7awku87rc5i"]
 
-[ext_resource type="Script" path="res://puzzle_template.gd" id="1_4b5rx"]
-[ext_resource type="Script" path="res://BackButton.gd" id="2_nelyo"]
-[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_184tl"]
-[ext_resource type="Script" path="res://day_1/Solution1.gd" id="4_csyd8"]
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_gnq1i"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_xy557"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_kk4df"]
+[ext_resource type="Script" path="res://day_1/Solution2.gd" id="4_tla2f"]
 
 [node name="PuzzleTemplate" type="Node2D"]
-script = ExtResource("1_4b5rx")
+script = ExtResource("1_gnq1i")
 dayNumber = 1
-partNumber = 1
+partNumber = 2
 
 [node name="BackButton" type="Button" parent="."]
 offset_left = 20.0
@@ -16,11 +16,11 @@ offset_top = 20.0
 offset_right = 177.0
 offset_bottom = 51.0
 text = "Back to Main Menu"
-script = ExtResource("2_nelyo")
+script = ExtResource("2_xy557")
 
 [node name="PuzzleRoot" type="Node2D" parent="."]
 position = Vector2(0, 71)
-script = ExtResource("3_184tl")
+script = ExtResource("3_kk4df")
 
 [node name="Control" type="Control" parent="PuzzleRoot"]
 layout_mode = 3
@@ -28,7 +28,7 @@ anchors_preset = 0
 offset_top = -71.0
 offset_right = 40.0
 offset_bottom = -31.0
-script = ExtResource("4_csyd8")
+script = ExtResource("4_tla2f")
 
 [node name="LineLabel" type="Label" parent="PuzzleRoot/Control"]
 layout_mode = 0
