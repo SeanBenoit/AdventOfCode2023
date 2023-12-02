@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjngefyrviojd"]
+
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_kcb62"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_psy7i"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_7iqmu"]
+[ext_resource type="Script" path="res://day_2/ColouredCubeHolder.gd" id="4_0v5rg"]
+[ext_resource type="Script" path="res://day_2/CubeHolder.gd" id="4_6nyfd"]
+[ext_resource type="Script" path="res://day_2/Solution1.gd" id="4_annlm"]
+
+[node name="PuzzleTemplate" type="Node2D"]
+script = ExtResource("1_kcb62")
+dayNumber = 2
+partNumber = 1
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 177.0
+offset_bottom = 51.0
+text = "Back to Main Menu"
+script = ExtResource("2_psy7i")
+
+[node name="PuzzleRoot" type="Node2D" parent="."]
+position = Vector2(0, 71)
+script = ExtResource("3_7iqmu")
+
+[node name="Solution1" type="Node2D" parent="PuzzleRoot"]
+script = ExtResource("4_annlm")
+
+[node name="Control" type="Control" parent="PuzzleRoot/Solution1"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 20.0
+offset_right = 60.0
+offset_bottom = 40.0
+
+[node name="ResultLabel" type="Label" parent="PuzzleRoot/Solution1/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Result"
+
+[node name="GameLabel" type="Label" parent="PuzzleRoot/Solution1/Control"]
+layout_mode = 0
+offset_top = 46.0
+offset_right = 70.0
+offset_bottom = 72.0
+text = "Game #0"
+
+[node name="PullLabel" type="Label" parent="PuzzleRoot/Solution1/Control"]
+layout_mode = 0
+offset_top = 92.0
+offset_right = 53.0
+offset_bottom = 118.0
+text = "Pull #1"
+
+[node name="CubesLabel" type="Label" parent="PuzzleRoot/Solution1/Control"]
+layout_mode = 0
+offset_top = 138.0
+offset_right = 104.0
+offset_bottom = 164.0
+text = "Cubes Pulled:"
+
+[node name="PossibilityLabel" type="Label" parent="PuzzleRoot/Solution1/Control"]
+layout_mode = 0
+offset_left = 124.0
+offset_top = 92.0
+offset_right = 164.0
+offset_bottom = 115.0
+
+[node name="CubeHolder" type="Node2D" parent="PuzzleRoot/Solution1"]
+position = Vector2(20, 184)
+script = ExtResource("4_6nyfd")
+
+[node name="RedCubeHolder" type="Node2D" parent="PuzzleRoot/Solution1/CubeHolder"]
+script = ExtResource("4_0v5rg")
+colour = Color(1, 0, 0, 1)
+
+[node name="GreenCubeHolder" type="Node2D" parent="PuzzleRoot/Solution1/CubeHolder"]
+script = ExtResource("4_0v5rg")
+colour = Color(0, 1, 0, 1)
+
+[node name="BlueCubeHolder" type="Node2D" parent="PuzzleRoot/Solution1/CubeHolder"]
+script = ExtResource("4_0v5rg")
+colour = Color(0, 0, 1, 1)
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
+[connection signal="finish_parsing" from="PuzzleRoot" to="PuzzleRoot/Solution1" method="_on_puzzle_root_finish_parsing"]
+[connection signal="rowsChanged" from="PuzzleRoot/Solution1/CubeHolder/RedCubeHolder" to="PuzzleRoot/Solution1/CubeHolder" method="_on_red_cube_holder_rows_changed"]
+[connection signal="rowsChanged" from="PuzzleRoot/Solution1/CubeHolder/GreenCubeHolder" to="PuzzleRoot/Solution1/CubeHolder" method="_on_green_cube_holder_rows_changed"]
+[connection signal="rowsChanged" from="PuzzleRoot/Solution1/CubeHolder/BlueCubeHolder" to="PuzzleRoot/Solution1/CubeHolder" method="_on_blue_cube_holder_rows_changed"]

@@ -12,7 +12,6 @@ func _ready():
 	var inputFile = FileAccess.open(inputFileName, FileAccess.READ)
 	while not inputFile.eof_reached():
 		puzzleInputLines.append(inputFile.get_line())
-		print(puzzleInputLines.size())
 	if (puzzleInputLines[-1] == ""):
 		puzzleInputLines.remove_at(puzzleInputLines.size() - 1)
 	finish_parsing.emit(puzzleInputLines)

@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://csgwswxkllwxq"]
+
+[node name="ColouredSquare" type="Polygon2D"]
+polygon = PackedVector2Array(0, 0, 20, 0, 20, 20, 0, 20)
