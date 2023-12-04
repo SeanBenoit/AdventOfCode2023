@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://s3dycfm3883k"]
+
+[ext_resource type="Script" path="res://day_3/SymbolRow.gd" id="1_j2kvg"]
+
+[node name="SymbolRow" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_j2kvg")

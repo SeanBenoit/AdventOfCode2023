@@ -39,6 +39,12 @@ offset_top = 120.0
 offset_bottom = 160.0
 dayNumber = 2
 
+[node name="DaySelector3" parent="MainUi" instance=ExtResource("1_f6nyx")]
+layout_mode = 1
+offset_top = 160.0
+offset_bottom = 200.0
+dayNumber = 3
+
 [node name="QuitButton" type="Button" parent="MainUi"]
 layout_mode = 0
 offset_left = -780.0
