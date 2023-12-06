@@ -53,7 +53,6 @@ func is_symbol(pos: Vector2):
 	return not ".1234567890".contains(gridRoot.get_symbol(pos))
 
 var currentValue = 0
-var startPos: Vector2
 var adjacentSpaces = []
 var gotAllDigits = false
 var doneRow = false

@@ -90,9 +90,17 @@ func show_number_box():
 	numberBox.position = 26 * (focusSquareOffset + gridOffset)
 	numberBox.visible = true
 
+func show_number_box_at(pos: Vector2):
+	numberBox.position = 26 * (pos + gridOffset)
+	numberBox.visible = true
+
 func expand_number_box():
 	numberBox.polygon[1].x += 26
 	numberBox.polygon[2].x += 26
+
+func expand_number_box_left():
+	expand_number_box()
+	numberBox.position.x -= 26
 
 func reset_number_box():
 	numberBox.visible = false

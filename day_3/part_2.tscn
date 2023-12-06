@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=3 uid="uid://dltflojvvulrh"]
+
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_sndgs"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_x2ud6"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_qpms3"]
+[ext_resource type="Script" path="res://day_3/Solution2.gd" id="4_m4ylv"]
+[ext_resource type="Script" path="res://day_3/GridRoot.gd" id="5_n4y0f"]
+
+[node name="PuzzleTemplate" type="Node2D"]
+script = ExtResource("1_sndgs")
+dayNumber = 3
+partNumber = 2
+
+[node name="BackButton" type="Button" parent="."]
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 177.0
+offset_bottom = 41.0
+text = "Back to Main Menu"
+script = ExtResource("2_x2ud6")
+
+[node name="PuzzleRoot" type="Node2D" parent="."]
+position = Vector2(0, 50)
+script = ExtResource("3_qpms3")
+
+[node name="Solver" type="Node" parent="PuzzleRoot"]
+script = ExtResource("4_m4ylv")
+
+[node name="DisplayRoot" type="Control" parent="PuzzleRoot"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -50.0
+offset_right = 240.0
+offset_bottom = -10.0
+
+[node name="TotalLabel" type="Label" parent="PuzzleRoot/DisplayRoot"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 103.0
+offset_bottom = 36.0
+text = "Total: "
+
+[node name="GridRoot" type="Node2D" parent="PuzzleRoot"]
+position = Vector2(10, 10)
+script = ExtResource("5_n4y0f")
+
+[node name="AdjacentCheckSquare" type="Polygon2D" parent="PuzzleRoot/GridRoot"]
+visible = false
+color = Color(0, 1, 0, 1)
+invert_enabled = true
+invert_border = 5.0
+polygon = PackedVector2Array(0, 0, 26, 0, 26, 26, 0, 26)
+
+[node name="FocusSquare" type="Polygon2D" parent="PuzzleRoot/GridRoot"]
+color = Color(1, 0, 0, 1)
+invert_enabled = true
+invert_border = 5.0
+polygon = PackedVector2Array(0, 0, 26, 0, 26, 26, 0, 26)
+
+[node name="NumberBox" type="Polygon2D" parent="PuzzleRoot/GridRoot"]
+visible = false
+color = Color(0, 0, 1, 1)
+invert_enabled = true
+invert_border = 5.0
+polygon = PackedVector2Array(0, 0, 0, 0, 0, 26, 0, 26)
+
+[node name="RowHolder" type="Node2D" parent="PuzzleRoot/GridRoot"]
+
+[connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
+[connection signal="finish_parsing" from="PuzzleRoot" to="PuzzleRoot/GridRoot" method="_on_puzzle_root_finish_parsing"]
