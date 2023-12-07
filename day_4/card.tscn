@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvqy3slgpn1mk"]
+
+[ext_resource type="Script" path="res://day_4/Card.gd" id="1_n6mgx"]
+[ext_resource type="Script" path="res://day_4/CardLabel.gd" id="2_ct68f"]
+
+[sub_resource type="SystemFont" id="SystemFont_tho8l"]
+
+[node name="Card" type="Node2D"]
+script = ExtResource("1_n6mgx")
+
+[node name="CardLabel" type="Label" parent="."]
+offset_right = 71.0
+offset_bottom = 26.0
+theme_override_fonts/font = SubResource("SystemFont_tho8l")
+text = "Card   1:  "
+script = ExtResource("2_ct68f")
+
+[node name="WinnerHighlight" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 1)
+offset = Vector2(71, 22)
+invert_border = 5.0
+polygon = PackedVector2Array(0, 0, 19, 0, 19, 2, 0, 2)
+
+[node name="NumberHighlight" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0, 0, 1)
+offset = Vector2(289, 22)
+invert_border = 5.0
+polygon = PackedVector2Array(0, 0, 19, 0, 19, 2, 0, 2)
