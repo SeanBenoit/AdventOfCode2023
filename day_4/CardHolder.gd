@@ -1,6 +1,10 @@
 extends Node2D
 
 
+# Flag to control if we score using p2's method
+@export
+var winsMoreCards: bool
+
 var cards = []
 var currentCard = 0
 var total = 0
@@ -28,12 +32,15 @@ func _on_puzzle_root_finish_parsing(input_lines):
 	for i in input_lines.size():
 		var line = input_lines[i]
 		var newCard = cardTemplate.instantiate()
-		newCard.set_game(line)
+		newCard.set_game(line, winsMoreCards)
 		cards.append(newCard)
 		add_child(newCard)
 		newCard.position.y = 26 * i
 		newCard.current_score.connect(_on_card_current_score)
 		newCard.done_card.connect(_on_card_done_card)
+	if winsMoreCards:
+		total = cards.size()
+		$DisplayRoot/TotalLabel.text = "Total: %s" % total
 	cards[0].start_game()
 
 func _on_card_current_score(score: int):
@@ -41,8 +48,13 @@ func _on_card_current_score(score: int):
 
 func _on_card_done_card(score: int):
 	# Update the total
-	total += score
+	total += score * cards[currentCard].copies
 	$DisplayRoot/TotalLabel.text = "Total: %s" % total
+	# Add copies of the next cards
+	if winsMoreCards:
+		for i in score:
+			var index = currentCard + i + 1
+			cards[index].copies += cards[currentCard].copies
 	# Move to the next card
 	currentCard += 1
 	if currentCard < cards.size():

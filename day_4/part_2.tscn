@@ -1,12 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bq2ulparngppg"]
+[gd_scene load_steps=5 format=3 uid="uid://canyl2j0623c0"]
 
-[ext_resource type="Script" path="res://puzzle_template.gd" id="1_m5pf7"]
-[ext_resource type="Script" path="res://BackButton.gd" id="2_84axc"]
-[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_i08un"]
-[ext_resource type="Script" path="res://day_4/CardHolder.gd" id="4_b7yoc"]
+[ext_resource type="Script" path="res://puzzle_template.gd" id="1_nsbge"]
+[ext_resource type="Script" path="res://BackButton.gd" id="2_nytik"]
+[ext_resource type="Script" path="res://PuzzleRoot.gd" id="3_87y3w"]
+[ext_resource type="Script" path="res://day_4/CardHolder.gd" id="4_3u188"]
 
 [node name="PuzzleTemplate" type="Node2D"]
-script = ExtResource("1_m5pf7")
+script = ExtResource("1_nsbge")
 dayNumber = 4
 partNumber = 2
 
@@ -16,15 +16,16 @@ offset_top = 20.0
 offset_right = 177.0
 offset_bottom = 51.0
 text = "Back to Main Menu"
-script = ExtResource("2_84axc")
+script = ExtResource("2_nytik")
 
 [node name="PuzzleRoot" type="Node2D" parent="."]
 position = Vector2(0, 71)
-script = ExtResource("3_i08un")
+script = ExtResource("3_87y3w")
 
 [node name="CardHolder" type="Node2D" parent="PuzzleRoot"]
 position = Vector2(20, 0)
-script = ExtResource("4_b7yoc")
+script = ExtResource("4_3u188")
+winsMoreCards = true
 
 [node name="DisplayRoot" type="Control" parent="PuzzleRoot/CardHolder"]
 layout_mode = 3

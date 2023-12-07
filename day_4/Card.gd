@@ -6,6 +6,9 @@ var winningNumberIndex = 0
 var gameNumberIndex = 0
 var score = 0
 
+var incrementalScoring: bool
+var copies = 1
+
 signal done_card(score: int)
 signal current_score(score: int)
 
@@ -20,12 +23,16 @@ func _process(delta):
 		hide()
 	else:
 		show()
+		$CopiesLabel.text = "Copies: %s" % copies
 
 
-func set_game(input):
+func set_game(input: String, winsMoreCards: bool):
 	$CardLabel.set_game(input)
 	winningNumbers = $CardLabel.winningNumbers
 	gameNumbers = $CardLabel.gameNumbers
+	incrementalScoring = winsMoreCards
+	if incrementalScoring:
+		$CopiesLabel.show()
 
 func start_game():
 	$WinnerHighlight.visible = true
@@ -55,7 +62,9 @@ func check_step():
 	next_game_number()
 
 func increase_score():
-	if score == 0:
+	if incrementalScoring:
+		score += 1
+	elif score == 0:
 		score = 1
 	else:
 		score *= 2
